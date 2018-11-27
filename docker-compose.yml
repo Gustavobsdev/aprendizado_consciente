@@ -1,0 +1,28 @@
+version: '3.5'
+
+x-default: &default
+  env_file: .env
+  volumes:
+    - ".:$HOME/projeto_ufabc"
+  stdin_open: true
+  tty: true
+  depends_on:
+    - db
+services:
+  web:
+    <<: *default
+    command: "rails server --pid /tmp/rails_server.pid"
+    build:
+      context: .
+      args:
+        user: ${USER}
+        uid: ${UID}
+    ports:
+      - 3000:3000
+  db:
+    env_file: .env
+    image: postgres:9.6-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
