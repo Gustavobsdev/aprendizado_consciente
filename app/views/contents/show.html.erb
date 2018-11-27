@@ -1,0 +1,2 @@
+<%= @content.title %>
+<%= raw(Redcarpet::Markdown.new(Redcarpet::Render::HTML.new).render(@content.paragraph)) %>
