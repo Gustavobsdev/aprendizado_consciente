@@ -1,0 +1,2 @@
+class TextParagraph < Paragraph
+end

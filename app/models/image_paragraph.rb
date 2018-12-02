@@ -1,0 +1,2 @@
+class ImageParagraph < Paragraph
+end
