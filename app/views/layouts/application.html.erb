@@ -9,7 +9,15 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body id="top">
+    <%= render partial: 'shared/header' %>
+    <div class="wrapper row3">
+      <main class="hoc container clear">
+      <div class="content">
+        <%= yield %>
+      </div>
+      </main>
+    </div>
+    <%= render partial: 'shared/footer' %>
   </body>
 </html>
