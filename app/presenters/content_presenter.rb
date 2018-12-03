@@ -14,5 +14,4 @@ class ContentPresenter
   private
 
   attr_reader :content
-
 end

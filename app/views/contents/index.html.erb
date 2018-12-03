@@ -1,0 +1,10 @@
+<table>
+  <% @contents.each do |content| %>
+    <div class="content" style="inline">
+      <tr>
+        <td><%= image_tag content.image, class: 'content-item' %></td>
+        <td><h1><%= link_to content.title, content %></h1></td>
+      </tr>
+    </div>
+  <% end %>
+</table>

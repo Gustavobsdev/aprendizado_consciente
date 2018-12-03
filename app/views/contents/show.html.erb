@@ -1,2 +1,9 @@
+<% content_for :breadcrumb do %>
+  <ul>
+    <li><a href="/">Página inicial</a></li>
+    <li><%= link_to @content.category.title, '#' %></li>
+    <li>Síntese da Matemática</li>
+  </ul>
+<% end %>
 <h1><%= @content.title %></h1>
 <%= raw(@content_presenter.render_paragraphs) %>

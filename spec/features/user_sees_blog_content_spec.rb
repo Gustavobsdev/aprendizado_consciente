@@ -57,7 +57,22 @@ RSpec.describe 'user_sees_blog_content' do
       )
     end
 
-    it 'shows images' do
+    it 'finds content by slug' do
+      content = create(:content)
+
+      first_paragraph = create(
+        :paragraph,
+        order: 1,
+        content: content
+      )
+
+      visit content_path(content.slug)
+
+      expect(page).to have_content(content.title)
+
+      within('.paragraph-1') do
+        expect(page).to have_content(first_paragraph.text)
+      end
     end
   end
 
@@ -70,7 +85,7 @@ RSpec.describe 'user_sees_blog_content' do
         content: content
       )
 
-      second_paragraph = create(
+      _second_paragraph = create(
         :image_paragraph,
         order: 2,
         content: content
@@ -85,8 +100,23 @@ RSpec.describe 'user_sees_blog_content' do
       end
 
       within('.paragraph-2') do
-        expect(page).to have_xpath("//img[contains(@src,'universe.png')]")
+        expect(page).to have_xpath("//img[contains(@src,'universe.png') and @class='paragraph-2']")
       end
     end
+  end
+
+  it 'views breadcrumb' do
+    category = create(:category)
+    content = create(:content, category: category)
+    _first_paragraph = create(
+      :paragraph,
+      order: 1,
+      content: content
+    )
+    visit content_path(content)
+
+    expect(page).to have_content(content.title)
+    expect(page).to have_link('Página inicial', href: '/')
+    expect(page).to have_link(content.category.title, href: '#')
   end
 end

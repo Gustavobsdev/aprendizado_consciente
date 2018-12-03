@@ -18,7 +18,8 @@ services:
         user: ${USER}
         uid: ${UID}
     ports:
-      - 3000:3000
+      - 0.0.0.0:3000:3000/tcp
+      - 0.0.0.0:3000:3000/udp
   db:
     env_file: .env
     image: postgres:9.6-alpine

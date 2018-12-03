@@ -3,11 +3,10 @@
     <div class="one_half first">
       <h6 class="title">Páginas mais visitadas</h6>
       <ul class="nospace linklist">
-        <li><a href="#">Quis justo luctus sodales</a></li>
-        <li><a href="#">Id commodo enim vivamus</a></li>
-        <li><a href="#">Mattis nisl et interdum</a></li>
-        <li><a href="#">Non urna a eros cursus</a></li>
-        <li><a href="#">Rutrum eleifend posuere</a></li>
+        <li><a href="#"><%= link_to Content.first.title, Content.first %></a></li>
+        <li><a href="#"><%= link_to Content.last.title, Content.last %></a></li>
+        <li><a href="#">Historia do atomo</a></li>
+        <li><a href="#">Origem do universo</a></li>
       </ul>
     </div>
     <div class="one_half">
