@@ -2,7 +2,7 @@
   <ul>
     <li><a href="/">Página inicial</a></li>
     <li><%= link_to @content.category.title, '#' %></li>
-    <li>Síntese da Matemática</li>
+    <li><%= @content.title %></li>
   </ul>
 <% end %>
 <h1><%= @content.title %></h1>
